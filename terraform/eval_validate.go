@@ -254,6 +254,10 @@ var connectionBlockSupersetSchema = &configschema.Block{
 			Type:     cty.String,
 			Optional: true,
 		},
+		"certificate": {
+			Type:     cty.String,
+			Optional: true,
+		},
 		"host_key": {
 			Type:     cty.String,
 			Optional: true,
