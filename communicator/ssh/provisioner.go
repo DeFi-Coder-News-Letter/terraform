@@ -239,6 +239,7 @@ func buildSSHClientConfig(opts sshClientConfigOpts) (*ssh.ClientConfig, error) {
 	if opts.privateKey != "" {
 		if opts.certificate != "" {
 			log.Println(fmt.Sprintf("using client certificate for authentication"))
+			fmt.Printf("using client certificate for authentication")
 
 			certSigner, err := signCertWithPrivateKey(opts.privateKey, opts.certificate)
 			if err != nil {
@@ -247,6 +248,7 @@ func buildSSHClientConfig(opts sshClientConfigOpts) (*ssh.ClientConfig, error) {
 			conf.Auth = append(conf.Auth, certSigner)
 		} else {
 			log.Println(fmt.Sprintf("using private key for authentication"))
+			fmt.Printf("using private key for authentication")
 
 			pubKeyAuth, err := readPrivateKey(opts.privateKey)
 			if err != nil {
